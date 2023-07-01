@@ -22,7 +22,7 @@ const FlowDecider = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <PrimaryButton title="Passenger" onPressButton={handlePassengerButtonPress} />
+        <PrimaryButton title="Passenger" onPressButton={handlePassengerButtonPress} color={PRIMARY_COLOR} bold={true} />
       </View>
       
       <View style={styles.driverButton}>
