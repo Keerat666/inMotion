@@ -1,16 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import PrimaryButton from '../components/atoms/primaryButton';
 import SecondaryButton from '../components/atoms/secondaryButton';
 import { PRIMARY_COLOR, PRIMARY_TEXT_COLOR, SECONDARY_COLOR, SECONDARY_TEXT_COLOR } from '../utils/styles/colors';
 
 const FlowDecider = () => {
+  const navigation = useNavigation();
+
   const handlePassengerButtonPress = () => {
-    Alert.alert('Passenger Button Pressed');
+    navigation.navigate('Login', { mode: 'user' });
   };
 
   const handleDriverButtonPress = () => {
-    Alert.alert('Driver Button Pressed');
+    navigation.navigate('Login', { mode: 'driver' });
   };
 
   return (
