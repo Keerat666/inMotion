@@ -18,9 +18,8 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 16,
-      width: '90%',
-      height : '7%',
-      marginHorizontal : '40%'
+      width: '100%',
+      height : '100%',
     },
     buttonText: {
       color: '#000000',
