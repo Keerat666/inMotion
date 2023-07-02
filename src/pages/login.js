@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, StatusBar, Keyboard } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PrimaryButton from '../components/atoms/primaryButton';
 import { loginAPI } from '../service/login';
 import { HINT_AND_PLACEHOLDER, PRIMARY_COLOR, PRIMARY_COLOR_LIGHT, PRIMARY_TEXT_COLOR, SECONDARY_TEXT_COLOR, TERMS_AND_CONDITIONS } from '../utils/styles/colors';
 
 const Login = () => {
+  const navigation = useNavigation();
   const route = useRoute();
   const { mode } = route.params; // Fetching the mode from route.params
 
@@ -28,27 +29,22 @@ const Login = () => {
   };
 
   const triggerLogin = async () => {
-    if(phoneNumber.length===10)
-    {
-        const res = await loginAPI(phoneNumber, mode); // Pass the mode to the loginAPI function
-        console.log(res);
-        if(res.err === "id not found")
-        {
-            alert("Id with phone number : "+phoneNumber+" does not exist!")
-            setPhoneNumber("")
-        }
-        else if(res.err === "")
-        {
-            alert("Login Success")
-            //props.route.params.navigation.navigate('DriverTab',{navigation : props.route.params.navigation, data : json.data})
-    
-        }
-    }
-    else
-    {
-        alert("Please enter a valid number :( ")
-    }
+    if (phoneNumber.length === 10) {
+      const res = await loginAPI(phoneNumber, mode); // Pass the mode to the loginAPI function
+      console.log(res);
+      if (res.err === "id not found") {
+        alert("Id with phone number : " + phoneNumber + " does not exist!")
+        setPhoneNumber("")
+      } else if (res.err === "") {
+        alert("Login Success")
 
+        if (mode === "driver")
+          navigation.navigate('DriverTab', { data: res.data })
+
+      }
+    } else {
+      alert("Please enter a valid number :(")
+    }
   };
 
   return (

@@ -5,3 +5,5 @@ export const PRIMARY_TEXT_COLOR = '#000000';
 export const SECONDARY_TEXT_COLOR = '#FFFFFF';
 export const TERMS_AND_CONDITIONS = '#4E5764'
 export const HINT_AND_PLACEHOLDER = '#AAAAAA'
+export const DANGER = '#FF3E3E'
+export const SUCCESS = '#008000'

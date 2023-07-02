@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { DANGER, SUCCESS } from '../utils/styles/colors';
 
 const DriverQrActive = (props) => {
   const [isActive, setIsActive] = useState("loading");
@@ -93,10 +94,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   activeButton: {
-    backgroundColor: '#008000',
+    backgroundColor: SUCCESS,
   },
   inactiveButton: {
-    backgroundColor: '#FF3E3E',
+    backgroundColor: DANGER,
   },
   buttonText: {
     color: 'white',
