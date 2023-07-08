@@ -36,10 +36,11 @@ const Login = () => {
         alert("Id with phone number : " + phoneNumber + " does not exist!")
         setPhoneNumber("")
       } else if (res.err === "") {
-        alert("Login Success")
-
         if (mode === "driver")
           navigation.navigate('DriverTab', { data: res.data })
+        else if(mode === "user")
+          navigation.navigate('UserDashboard', { data: res.data })
+
 
       }
     } else {
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: SECONDARY_TEXT_COLOR,
+    backgroundColor: SECONDARY_TEXT_COLOR
   },
   headerText: {
     fontSize: 22,

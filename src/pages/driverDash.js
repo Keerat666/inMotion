@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, ScrollVi
 import MyRides from '../components/molecules/myRides';
 import RideStats from '../components/molecules/rideStats';
 import TripDetails from '../components/molecules/tripDetails';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -15,6 +16,7 @@ const DriverDash = (props) => {
 
   const [todayRideCount, setTodayRideCount] = useState(0);
   const [todayRideFareSum, setTodayRideFareSum] = useState(0);
+  const navigation = useNavigation();
 
 
 
@@ -35,9 +37,8 @@ const DriverDash = (props) => {
 
   const handleLogout = () => {
     // Handle logout logic here
-    console.log("hello")
-    const { data, nav } = props;
-    nav.navigate('HomePage')
+    const { data } = props;
+    navigation.navigate('Splash')
 
   };
 
