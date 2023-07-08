@@ -21,7 +21,6 @@ export default function App() {
         <Stack.Screen name="Splash" component={Splash} options={{title: 'Splash',headerShown: false}} />
         <Stack.Screen name="FinalizeRide" component={BookCab} options={{title: 'FinalCab',headerShown: false}} />
         <Stack.Screen name="CabBooked" component={RideBookedScreen} options={{title: 'CabBooked',headerShown: false}} />
-
         <Stack.Screen name="BookCab" component={FindRide} options={{title: 'BookCab',headerShown: false}} />
         <Stack.Screen name="ScanQR" component={QRScanner} options={{title: 'QRscanner',headerShown: false}} />
         <Stack.Screen name="FindRide" component={FindRide} options={{title: 'FindRide',headerShown: false}} />

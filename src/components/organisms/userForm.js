@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Image, TextInput, StyleSheet, Text, StatusBar, 
 import { HINT_AND_PLACEHOLDER, PRIMARY_COLOR_LIGHT, SECONDARY_COLOR, SECONDARY_TEXT_COLOR } from '../../utils/styles/colors';
 import PrimaryButton from '../atoms/primaryButton';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import {Alert} from 'react-native'
 
 const UserForm = (props) => {
   const navigation = useNavigation();
@@ -30,8 +31,7 @@ const UserForm = (props) => {
       ];
     
       const randomIndex = Math.floor(Math.random() * messages.length);
-      alert(messages[randomIndex])
-      navigation.navigate('BookCab', { data: props.data })
+      Alert.alert('Thanks for chosing this option!',messages[randomIndex],[{text : "Continue", onPress : ()=>{navigation.navigate('BookCab', { data: props.data })}},{cancelable : false}])
 
   };
   
